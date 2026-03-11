@@ -1,0 +1,111 @@
+{
+  "current": {
+    "sections": {
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "eyebrow": "Tecnologia Tedesca · Design Italiano",
+          "title": "Cucine che <em>raccontano</em><br>la tua storia",
+          "subtitle": "Finiture esclusive, materiali d'eccellenza e una rete di rivenditori selezionati. Gruppo Alan porta nelle case il meglio del design italiano.",
+          "btn1_label": "Scopri le Collezioni",
+          "btn1_url": "/collections",
+          "btn2_label": "Richiedi un preventivo",
+          "btn2_url": "/pages/contatti"
+        }
+      },
+      "stats": {
+        "type": "stats",
+        "block_order": ["stat1","stat2","stat3","stat4"],
+        "blocks": {
+          "stat1": { "type": "stat", "settings": { "number": "25+", "label": "Anni di Esperienza" } },
+          "stat2": { "type": "stat", "settings": { "number": "180+", "label": "Rivenditori Affiliati" } },
+          "stat3": { "type": "stat", "settings": { "number": "5k+", "label": "Cucine Realizzate" } },
+          "stat4": { "type": "stat", "settings": { "number": "3", "label": "Paesi Serviti" } }
+        },
+        "settings": {}
+      },
+      "collections": {
+        "type": "collections-grid",
+        "block_order": ["c1","c2","c3","c4","c5"],
+        "blocks": {
+          "c1": { "type": "collection_card", "settings": { "tag": "Collezione Signature", "title": "Cucine Moderne" } },
+          "c2": { "type": "collection_card", "settings": { "tag": "Collezione Heritage", "title": "Cucine Classiche" } },
+          "c3": { "type": "collection_card", "settings": { "tag": "Collezione Living", "title": "Open Space" } },
+          "c4": { "type": "collection_card", "settings": { "tag": "Collezione Pro", "title": "Su Misura" } },
+          "c5": { "type": "collection_card", "settings": { "tag": "Materiali", "title": "Finiture Esclusive" } }
+        },
+        "settings": {
+          "tag": "Le Nostre Collezioni",
+          "title": "Un'estetica per <em>ogni visione</em>"
+        }
+      },
+      "about": {
+        "type": "about",
+        "block_order": ["f1","f2","f3","f4","f5","f6"],
+        "blocks": {
+          "f1": { "type": "feature", "settings": { "text": "Tecnologia tedesca di qualità superiore" } },
+          "f2": { "type": "feature", "settings": { "text": "Finiture e accessori esclusivi" } },
+          "f3": { "type": "feature", "settings": { "text": "Programma grafico fotorealistico" } },
+          "f4": { "type": "feature", "settings": { "text": "Formazione continua per rivenditori" } },
+          "f5": { "type": "feature", "settings": { "text": "Showroom espositivi a condizioni uniche" } },
+          "f6": { "type": "feature", "settings": { "text": "Montaggio professionale garantito" } }
+        },
+        "settings": {
+          "tag": "Chi Siamo",
+          "title": "Il partner ideale<br>per il tuo <em>showroom</em>",
+          "badge_number": "25",
+          "badge_label": "Anni di eccellenza",
+          "body": "Gruppo Alan è una realtà leader nella distribuzione di cucine di design, nata dalla passione per l'eccellenza italiana e la precisione tecnologica tedesca. Supportiamo i nostri rivenditori con strumenti, formazione e prodotti esclusivi che fanno la differenza nel mercato.",
+          "btn_label": "Scopri la nostra storia",
+          "btn_url": "/pages/chi-siamo"
+        }
+      },
+      "services": {
+        "type": "services",
+        "block_order": ["s1","s2","s3","s4"],
+        "blocks": {
+          "s1": { "type": "service", "settings": { "icon": "3d", "title": "Progettazione 3D", "description": "Rendering fotorealistici e planimetrie precise per presentare ogni progetto con professionalità." } },
+          "s2": { "type": "service", "settings": { "icon": "showroom", "title": "Showroom Esclusivi", "description": "Allestimenti espositivi a condizioni vantaggiose per valorizzare le collezioni nei tuoi spazi." } },
+          "s3": { "type": "service", "settings": { "icon": "person", "title": "Formazione", "description": "Corsi e aggiornamenti costanti su prodotti, tecniche di vendita e nuove finiture disponibili." } },
+          "s4": { "type": "service", "settings": { "icon": "chart", "title": "Marketing & Comunicazione", "description": "Materiali grafici, campagne e strategie di comunicazione per far crescere il tuo business." } }
+        },
+        "settings": {
+          "tag": "I Nostri Servizi",
+          "title": "Tutto ciò di cui<br>hai bisogno per <em>crescere</em>",
+          "description": "Un ecosistema completo di servizi pensato per supportare ogni fase del tuo lavoro, dalla progettazione alla consegna finale al cliente."
+        }
+      },
+      "gallery": {
+        "type": "gallery",
+        "block_order": ["g1","g2","g3","g4","g5","g6"],
+        "blocks": {
+          "g1": { "type": "image", "settings": { "alt": "Cucina moderna" } },
+          "g2": { "type": "image", "settings": { "alt": "Cucina classica" } },
+          "g3": { "type": "image", "settings": { "alt": "Dettaglio cucina" } },
+          "g4": { "type": "image", "settings": { "alt": "Open space" } },
+          "g5": { "type": "image", "settings": { "alt": "Living" } },
+          "g6": { "type": "image", "settings": { "alt": "Cucina su misura" } }
+        },
+        "settings": {
+          "tag": "Galleria",
+          "title": "Progetti <em>realizzati</em>",
+          "link_label": "Vedi tutti i progetti",
+          "link_url": "/pages/galleria"
+        }
+      },
+      "cta": {
+        "type": "cta-banner",
+        "settings": {
+          "eyebrow": "Lavora con noi",
+          "title": "Diventa un <em>rivenditore</em><br>Gruppo Alan",
+          "subtitle": "Unisciti alla nostra rete di partner selezionati e offri ai tuoi clienti le cucine più esclusive del mercato, con tutto il supporto di cui hai bisogno.",
+          "btn1_label": "Richiedi Informazioni",
+          "btn1_url": "/pages/contatti",
+          "btn2_label": "Scarica il Catalogo",
+          "btn2_url": "#"
+        }
+      }
+    },
+    "order": ["hero","stats","collections","about","services","gallery","cta"]
+  }
+}

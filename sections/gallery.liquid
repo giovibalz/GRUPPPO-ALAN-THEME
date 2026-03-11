@@ -1,0 +1,43 @@
+<section class="gallery">
+  <div class="gallery-header">
+    <div>
+      <div class="section-tag">{{ section.settings.tag | default: 'Galleria' }}</div>
+      <h2 class="section-title">{{ section.settings.title | default: 'Progetti <em>realizzati</em>' }}</h2>
+    </div>
+    <a href="{{ section.settings.link_url | default: '/pages/galleria' }}" class="gallery-link">{{ section.settings.link_label | default: 'Vedi tutti i progetti' }} →</a>
+  </div>
+  <div class="gallery-masonry">
+    {% for block in section.blocks %}
+    <div class="g-item" {{ block.shopify_attributes }}>
+      {% if block.settings.image != blank %}
+        <img src="{{ block.settings.image | img_url: '900x' }}" alt="{{ block.settings.alt | default: 'Progetto realizzato' }}" loading="lazy">
+      {% else %}
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="Cucina" loading="lazy">
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Galleria",
+  "settings": [
+    { "type": "text", "id": "tag", "label": "Tag sezione", "default": "Galleria" },
+    { "type": "textarea", "id": "title", "label": "Titolo" },
+    { "type": "text", "id": "link_label", "label": "Testo link", "default": "Vedi tutti i progetti" },
+    { "type": "url", "id": "link_url", "label": "Link" }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Foto",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Immagine" },
+        { "type": "text", "id": "alt", "label": "Testo alternativo" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Galleria" }]
+}
+{% endschema %}

@@ -1,0 +1,43 @@
+<section class="collections">
+  <div class="section-header">
+    <div class="section-tag">{{ section.settings.tag | default: 'Le Nostre Collezioni' }}</div>
+    <h2 class="section-title">{{ section.settings.title | default: 'Un\'estetica per <em>ogni visione</em>' }}</h2>
+  </div>
+  <div class="collections-grid">
+    {% for block in section.blocks %}
+      {% assign col = collections[block.settings.collection] %}
+      <a href="{% if col != blank %}{{ col.url }}{% else %}#{% endif %}" class="collection-card" {{ block.shopify_attributes }}>
+        <div class="card-bg" style="background-image: url('{% if block.settings.image != blank %}{{ block.settings.image | img_url: '1200x' }}{% elsif col.image != blank %}{{ col.image | img_url: '1200x' }}{% else %}https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80{% endif %}')"></div>
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <div class="card-tag">{{ block.settings.tag }}</div>
+          <div class="card-title">{% if col != blank %}{{ col.title }}{% else %}{{ block.settings.title }}{% endif %}</div>
+          <div class="card-arrow">→</div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Griglia Collezioni",
+  "settings": [
+    { "type": "text", "id": "tag", "label": "Tag sezione", "default": "Le Nostre Collezioni" },
+    { "type": "textarea", "id": "title", "label": "Titolo", "default": "Un'estetica per <em>ogni visione</em>" }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Card Collezione",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collezione" },
+        { "type": "image_picker", "id": "image", "label": "Immagine (sovrascrive quella della collezione)" },
+        { "type": "text", "id": "tag", "label": "Tag card", "default": "Collezione" },
+        { "type": "text", "id": "title", "label": "Titolo (se nessuna collezione)", "default": "Cucine" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Griglia Collezioni" }]
+}
+{% endschema %}

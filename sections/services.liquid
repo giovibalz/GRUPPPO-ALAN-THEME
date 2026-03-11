@@ -1,0 +1,55 @@
+<section class="services">
+  <div class="services-intro">
+    <div>
+      <div class="section-tag">{{ section.settings.tag | default: 'I Nostri Servizi' }}</div>
+      <h2 class="section-title">{{ section.settings.title | default: 'Tutto ciò di cui<br>hai bisogno per <em>crescere</em>' }}</h2>
+    </div>
+    <p class="services-desc">{{ section.settings.description }}</p>
+  </div>
+  <div class="services-grid">
+    {% for block in section.blocks %}
+    <div class="service-card" {{ block.shopify_attributes }}>
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+        {% case block.settings.icon %}
+          {% when '3d' %}<rect x="6" y="6" width="36" height="36" rx="2"/><path d="M6 18h36M18 18v24"/>
+          {% when 'showroom' %}<path d="M24 4L4 16v20l20 8 20-8V16L24 4z"/><path d="M24 4v40M4 16l20 8 20-8"/>
+          {% when 'person' %}<circle cx="24" cy="20" r="8"/><path d="M8 40c0-8.8 7.2-16 16-16s16 7.2 16 16"/>
+          {% when 'chart' %}<path d="M10 36l8-8 8 6 12-14"/><rect x="4" y="4" width="40" height="40" rx="3"/>
+          {% else %}<circle cx="24" cy="24" r="16"/><path d="M24 16v8l6 4"/>
+        {% endcase %}
+      </svg>
+      <div class="service-title">{{ block.settings.title }}</div>
+      <p class="service-desc">{{ block.settings.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Servizi",
+  "settings": [
+    { "type": "text", "id": "tag", "label": "Tag sezione", "default": "I Nostri Servizi" },
+    { "type": "textarea", "id": "title", "label": "Titolo" },
+    { "type": "textarea", "id": "description", "label": "Descrizione intro" }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Servizio",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icona", "options": [
+          {"value":"3d","label":"Progettazione 3D"},
+          {"value":"showroom","label":"Showroom"},
+          {"value":"person","label":"Formazione"},
+          {"value":"chart","label":"Marketing"},
+          {"value":"default","label":"Generico"}
+        ], "default": "default" },
+        { "type": "text", "id": "title", "label": "Titolo servizio" },
+        { "type": "textarea", "id": "description", "label": "Descrizione" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Servizi" }]
+}
+{% endschema %}

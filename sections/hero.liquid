@@ -1,0 +1,31 @@
+{% assign hero_image = section.settings.hero_image %}
+<section class="hero">
+  <div class="hero-bg" style="background-image: url('{% if hero_image != blank %}{{ hero_image | img_url: '2000x' }}{% else %}https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1800&q=85{% endif %}')"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">{{ section.settings.eyebrow | default: 'Tecnologia Tedesca · Design Italiano' }}</div>
+    <h1>{{ section.settings.title | default: 'Cucine che <em>raccontano</em><br>la tua storia' }}</h1>
+    <p class="hero-sub">{{ section.settings.subtitle | default: 'Finiture esclusive, materiali d\'eccellenza e una rete di rivenditori selezionati. Gruppo Alan porta nelle case il meglio del design italiano.' }}</p>
+    <div class="hero-actions">
+      <a href="{{ section.settings.btn1_url | default: routes.collections_url }}" class="btn-primary">{{ section.settings.btn1_label | default: 'Scopri le Collezioni' }}</a>
+      <a href="{{ section.settings.btn2_url | default: '/pages/contatti' }}" class="btn-ghost">{{ section.settings.btn2_label | default: 'Richiedi un preventivo' }} →</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scorri</div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Immagine Hero" },
+    { "type": "text", "id": "eyebrow", "label": "Testo sopra il titolo", "default": "Tecnologia Tedesca · Design Italiano" },
+    { "type": "textarea", "id": "title", "label": "Titolo principale", "default": "Cucine che <em>raccontano</em><br>la tua storia" },
+    { "type": "textarea", "id": "subtitle", "label": "Sottotitolo" },
+    { "type": "text", "id": "btn1_label", "label": "Testo pulsante 1", "default": "Scopri le Collezioni" },
+    { "type": "url", "id": "btn1_url", "label": "Link pulsante 1" },
+    { "type": "text", "id": "btn2_label", "label": "Testo pulsante 2", "default": "Richiedi un preventivo" },
+    { "type": "url", "id": "btn2_url", "label": "Link pulsante 2" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

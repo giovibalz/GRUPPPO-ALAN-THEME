@@ -1,0 +1,11 @@
+{
+  "general": {
+    "password_page": {
+      "login_form_heading": "Inserisci la password",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "La tua password",
+      "login_form_submit": "Entra",
+      "login_prompt": "Usa la password per accedere al negozio"
+    }
+  }
+}

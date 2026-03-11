@@ -1,0 +1,62 @@
+<section class="about">
+  <div class="about-visual">
+    {% if section.settings.image_main != blank %}
+      <img class="about-img-main" src="{{ section.settings.image_main | img_url: '900x' }}" alt="Chi siamo" />
+    {% else %}
+      <img class="about-img-main" src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=80" alt="Showroom Gruppo Alan" />
+    {% endif %}
+    {% if section.settings.image_secondary != blank %}
+      <img class="about-img-secondary" src="{{ section.settings.image_secondary | img_url: '500x' }}" alt="Dettaglio" />
+    {% else %}
+      <img class="about-img-secondary" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Cucina dettaglio" />
+    {% endif %}
+    <div class="about-badge">
+      <span class="about-badge-num">{{ section.settings.badge_number | default: '25' }}</span>
+      <span class="about-badge-label">{{ section.settings.badge_label | default: 'Anni di eccellenza' }}</span>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-header">
+      <div class="section-tag">{{ section.settings.tag | default: 'Chi Siamo' }}</div>
+      <h2 class="section-title">{{ section.settings.title | default: 'Il partner ideale<br>per il tuo <em>showroom</em>' }}</h2>
+      <div class="gold-line"></div>
+    </div>
+    <p class="about-body">{{ section.settings.body }}</p>
+    <div class="about-features">
+      {% for block in section.blocks %}
+        <div class="feature-item" {{ block.shopify_attributes }}>
+          <div class="feature-dot"></div>
+          <span class="feature-text">{{ block.settings.text }}</span>
+        </div>
+      {% endfor %}
+    </div>
+    <a href="{{ section.settings.btn_url | default: '/pages/chi-siamo' }}" class="btn-primary">{{ section.settings.btn_label | default: 'Scopri la nostra storia' }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Chi Siamo",
+  "settings": [
+    { "type": "image_picker", "id": "image_main", "label": "Immagine principale" },
+    { "type": "image_picker", "id": "image_secondary", "label": "Immagine secondaria" },
+    { "type": "text", "id": "badge_number", "label": "Numero badge", "default": "25" },
+    { "type": "text", "id": "badge_label", "label": "Testo badge", "default": "Anni di eccellenza" },
+    { "type": "text", "id": "tag", "label": "Tag sezione", "default": "Chi Siamo" },
+    { "type": "textarea", "id": "title", "label": "Titolo" },
+    { "type": "textarea", "id": "body", "label": "Testo descrittivo" },
+    { "type": "text", "id": "btn_label", "label": "Testo pulsante", "default": "Scopri la nostra storia" },
+    { "type": "url", "id": "btn_url", "label": "Link pulsante" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Punto di forza",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Testo", "default": "Punto di forza" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Chi Siamo" }]
+}
+{% endschema %}

@@ -1,0 +1,33 @@
+<section class="stats">
+  {% for block in section.blocks %}
+  <div class="stat-item" {{ block.shopify_attributes }}>
+    <div class="stat-number">{{ block.settings.number }}</div>
+    <div class="stat-label">{{ block.settings.label }}</div>
+  </div>
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Statistiche",
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistica",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Numero", "default": "25+" },
+        { "type": "text", "id": "label", "label": "Etichetta", "default": "Anni di Esperienza" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Statistiche",
+    "blocks": [
+      { "type": "stat", "settings": { "number": "25+", "label": "Anni di Esperienza" } },
+      { "type": "stat", "settings": { "number": "180+", "label": "Rivenditori Affiliati" } },
+      { "type": "stat", "settings": { "number": "5k+", "label": "Cucine Realizzate" } },
+      { "type": "stat", "settings": { "number": "3", "label": "Paesi Serviti" } }
+    ]
+  }]
+}
+{% endschema %}

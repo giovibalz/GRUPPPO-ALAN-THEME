@@ -1,0 +1,66 @@
+<div class="contact-wrapper">
+  <div class="contact-info">
+    <div class="section-tag">Contattaci</div>
+    <h1>Parliamo del<br><em>tuo progetto</em></h1>
+    <div class="gold-line"></div>
+    <p>Hai domande sulle nostre cucine o vuoi diventare un rivenditore affiliato? Siamo a tua disposizione.</p>
+    <div class="contact-detail">
+      <div class="contact-detail-item">
+        <strong>Showroom</strong>
+        Via dei Tre Denari, 441<br>Maccarese – Roma
+      </div>
+      <div class="contact-detail-item">
+        <strong>Telefono</strong>
+        <a href="tel:+390612345678">+39 06 XXX XXXX</a>
+      </div>
+      <div class="contact-detail-item">
+        <strong>Email</strong>
+        <a href="mailto:info@gruppoalan.it">info@gruppoalan.it</a>
+      </div>
+      <div class="contact-detail-item">
+        <strong>Orari</strong>
+        Lun–Ven: 9:00–18:00<br>Sab: 9:00–13:00
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="section-tag" style="margin-bottom:32px">Richiedi un preventivo</div>
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+        <p style="color:var(--gold);font-size:15px;margin-bottom:24px">✓ Messaggio inviato! Ti risponderemo al più presto.</p>
+      {% endif %}
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nome *</label>
+          <input type="text" id="name" name="contact[name]" required placeholder="Il tuo nome">
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="contact[email]" required placeholder="La tua email">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Telefono</label>
+          <input type="tel" id="phone" name="contact[phone]" placeholder="+39">
+        </div>
+        <div class="form-group">
+          <label for="interest">Interesse</label>
+          <select id="interest" name="contact[interest]">
+            <option value="">Seleziona...</option>
+            <option value="Cucina moderna">Cucina Moderna</option>
+            <option value="Cucina classica">Cucina Classica</option>
+            <option value="Open space">Open Space</option>
+            <option value="Su misura">Su Misura</option>
+            <option value="Diventare rivenditore">Diventare Rivenditore</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Messaggio *</label>
+        <textarea id="message" name="contact[body]" required placeholder="Descrivi il tuo progetto o la tua richiesta..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary form-submit">Invia Richiesta</button>
+    {% endform %}
+  </div>
+</div>

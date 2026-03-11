@@ -1,0 +1,25 @@
+<div class="page-header">
+  <div class="section-tag">{{ collection.title }}</div>
+  <h1 class="section-title">{{ collection.title }}</h1>
+  {% if collection.description != blank %}
+    <p>{{ collection.description }}</p>
+  {% endif %}
+</div>
+<div class="products-grid">
+  {% for product in collection.products %}
+  <a href="{{ product.url }}" class="product-card">
+    <div class="product-card-img">
+      {% if product.featured_image %}
+        <img src="{{ product.featured_image | img_url: '800x' }}" alt="{{ product.title }}">
+      {% else %}
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="{{ product.title }}">
+      {% endif %}
+    </div>
+    <div class="product-card-tag">{{ product.type | default: collection.title }}</div>
+    <div class="product-card-name">{{ product.title }}</div>
+    <p class="product-card-desc">{{ product.description | strip_html | truncate: 100 }}</p>
+  </a>
+  {% else %}
+    <p style="color:var(--mid);font-size:15px;grid-column:1/-1;padding:40px 0">Nessun prodotto in questa collezione al momento.</p>
+  {% endfor %}
+</div>

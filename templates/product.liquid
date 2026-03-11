@@ -1,0 +1,39 @@
+<div class="product-detail">
+  <div>
+    <div class="product-gallery-main">
+      <img id="main-img" src="{{ product.featured_image | img_url: '1200x' }}" alt="{{ product.title }}">
+    </div>
+    {% if product.images.size > 1 %}
+    <div class="product-thumbs">
+      {% for image in product.images limit: 4 %}
+      <div class="product-thumb {% if forloop.first %}active{% endif %}" onclick="document.getElementById('main-img').src='{{ image | img_url: '1200x' }}'; this.parentNode.querySelectorAll('.product-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active')">
+        <img src="{{ image | img_url: '300x' }}" alt="{{ product.title }}">
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="product-info">
+    <div class="section-tag">{{ product.type | default: 'Cucina' }}</div>
+    <h1>{{ product.title }}</h1>
+    <div class="gold-line"></div>
+    <div class="product-desc">{{ product.description }}</div>
+    {% if product.metafields.custom.materiale != blank or product.metafields.custom.stile != blank %}
+    <div class="product-attrs">
+      {% if product.metafields.custom.stile != blank %}
+      <div class="product-attr"><span class="product-attr-label">Stile</span><span class="product-attr-value">{{ product.metafields.custom.stile }}</span></div>
+      {% endif %}
+      {% if product.metafields.custom.materiale != blank %}
+      <div class="product-attr"><span class="product-attr-label">Materiale</span><span class="product-attr-value">{{ product.metafields.custom.materiale }}</span></div>
+      {% endif %}
+      {% if product.metafields.custom.finitura != blank %}
+      <div class="product-attr"><span class="product-attr-label">Finitura</span><span class="product-attr-value">{{ product.metafields.custom.finitura }}</span></div>
+      {% endif %}
+    </div>
+    {% endif %}
+    <div class="contact-cta-box">
+      <p>Sei interessato a questa cucina? Contattaci per ricevere un preventivo personalizzato o per fissare una visita al nostro showroom.</p>
+      <a href="/pages/contatti?cucina={{ product.title | url_encode }}" class="btn-primary">Richiedi Informazioni</a>
+    </div>
+  </div>
+</div>

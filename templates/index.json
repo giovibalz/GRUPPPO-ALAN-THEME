@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {} },
+    "stats": { "type": "stats", "settings": {} },
+    "collections": { "type": "collections-grid", "settings": {} },
+    "about": { "type": "about", "settings": {} },
+    "services": { "type": "services", "settings": {} },
+    "gallery": { "type": "gallery", "settings": {} },
+    "cta": { "type": "cta-banner", "settings": {} }
+  },
+  "order": ["hero","stats","collections","about","services","gallery","cta"]
+}

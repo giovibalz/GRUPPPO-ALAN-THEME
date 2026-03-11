@@ -1,0 +1,46 @@
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">{{ shop.name }}</div>
+      <p class="footer-tagline">Leader nella distribuzione di cucine di design. Tecnologia tedesca, estetica italiana, servizio senza compromessi.</p>
+      <div class="footer-social">
+        <a href="#" class="social-link">in</a>
+        <a href="#" class="social-link">ig</a>
+        <a href="#" class="social-link">fb</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigazione</div>
+      <ul class="footer-links">
+        <li><a href="{{ routes.root_url }}">Home</a></li>
+        <li><a href="/pages/chi-siamo">Chi Siamo</a></li>
+        <li><a href="{{ routes.collections_url }}">Cucine</a></li>
+        <li><a href="/pages/servizi">Servizi</a></li>
+        <li><a href="/pages/galleria">Galleria</a></li>
+        <li><a href="/pages/contatti">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Collezioni</div>
+      <ul class="footer-links">
+        {% for collection in collections %}
+          <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contatti</div>
+      <div class="footer-contact-item">Via dei Tre Denari, 441<br>Maccarese – Roma</div>
+      <div class="footer-contact-item"><a href="tel:+390612345678">+39 06 XXX XXXX</a></div>
+      <div class="footer-contact-item"><a href="mailto:info@gruppoalan.it">info@gruppoalan.it</a></div>
+      <div class="footer-contact-item" style="margin-top:20px;font-size:11px;color:rgba(255,255,255,0.2)">Mobilpro Italia S.r.l — P.IVA 15770241006</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© {{ 'now' | date: '%Y' }} Gruppo Alan – Mobilpro Italia S.r.l. Tutti i diritti riservati.</div>
+    <div class="footer-legal">
+      <a href="/pages/privacy-policy">Privacy Policy</a>
+      <a href="/pages/cookie-policy">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
